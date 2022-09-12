@@ -1,0 +1,7 @@
+table, td {
+    margin: 0;
+    padding: 0px;
+    width: 0px;
+    height: 0px;
+    border: 2px solid black;
+}

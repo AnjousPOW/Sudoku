@@ -1,0 +1,56 @@
+{% extends 'index.html' %}
+
+{% block title %}
+Main page
+{% endblock %}
+
+
+
+{% block content %}
+
+<!--<table class="tablo">-->
+<!--    {% for row in grid %}-->
+<!--    <tr class="tablo">-->
+<!--        {% for col in row %}-->
+<!--            <td class="tablo">-->
+<!--                {{ col }}-->
+<!--            </td>-->
+<!--        {% endfor %}-->
+<!--    </tr>-->
+<!--    {% endfor %}-->
+<!--</table>-->
+
+<form method="post">
+    <table>
+    {% for i in range(9) %}
+        <tr>
+            {% for j in range(9) %}
+                <td>
+                    {% if grid[i][j] != 0 %}
+                          <input type="text"
+                              name="{{ i }}{{ j }}"
+                              value="{{ grid[i][j] }}">
+                    {% else %}
+                         <input type="text"
+                              name="{{ i }}{{ j }}"
+                              value="">
+
+                    {% endif %}
+                </td>
+            {% endfor %}
+        </tr>
+    {% endfor %}
+    </table>
+    <input type="submit" value="Отправить ход">
+
+</form>
+
+"00"
+"01"
+"35"
+"02"
+....
+
+request.form.get("35")
+
+{% endblock %}
