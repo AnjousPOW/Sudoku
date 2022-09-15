@@ -1,6 +1,7 @@
 from sydoky_app import app
 from flask import render_template, request
-from sydoky_app.sydoky.models import grid
+from sydoky_app.sydoky.models import grid, victory, gameOver
+
 
 @app.route('/')
 @app.route('/index')
@@ -24,30 +25,11 @@ def Data_input():
                 except:
                     grid[i][j] = 0
 
-        print(grid)
+    if victory():
+        gameOver = True
 
-    return render_template('Tablo.html', grid=grid)
+    return render_template('Tablo.html', grid=grid, gameOver=gameOver)
 
-
-
-# for i in range(9):
-#     for j in range(9):
-#         if grid[0][j] == grid[i][j]:
-#             print('символы совподают')
-#             break
+# @app.route('/tablo')
+# def victor_input():
 #
-# for i in range(9):
-#     for j in range(9):
-#         if grid[i][0] == grid[i][j]:
-#             print('символы совподают')
-#             break
-#
-# for i in range(0, 9, 3):
-#     for j in range(0, 9, 3):
-#         s = set()
-#         for dx in range(3):
-#             for dy in range(3):
-#                 s.add(grid[i + dx][j + dy])
-#
-#         if len(s) != 9:
-#             print('символы равны')

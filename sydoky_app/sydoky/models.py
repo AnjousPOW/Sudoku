@@ -12,6 +12,27 @@ grid = [[5, 0, 9, 0, 0, 0, 4, 0, 0],
         [0, 0, 3, 0, 4, 0, 0, 8, 7],
         [0, 7, 0, 0, 5, 3, 0, 0, 6]]
 
+gameOver = False
 
+def victory():
+      for i in range(9):
+          row = set()
+          col = set()
+          for j in range(9):
+              row.add(grid[i][j])
+              col.add(grid[j][i])
 
+          if len(row) != 9 or len(col) != 9:
+               return False
 
+      for i in range(0, 9, 3):
+          for j in range(0, 9, 3):
+              kyb = set()
+              for dx in range(3):
+                  for dy in range(3):
+                      kyb.add(grid[i + dx][j + dy])
+
+              if len(kyb) != 9:
+                  return False
+
+      return True
