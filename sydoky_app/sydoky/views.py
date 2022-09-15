@@ -17,6 +17,8 @@ def pri_arr():
 
 @app.route('/tablo', methods=['GET', 'POST'])
 def Data_input():
+    global gameOver
+
     if request.method == 'POST':
         for i in range(9):
             for j in range(9):
@@ -30,6 +32,3 @@ def Data_input():
 
     return render_template('Tablo.html', grid=grid, gameOver=gameOver)
 
-# @app.route('/tablo')
-# def victor_input():
-#

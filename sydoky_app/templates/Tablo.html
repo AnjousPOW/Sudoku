@@ -43,8 +43,17 @@ Main page
     </table>
     <input type="submit" value="Отправить ход">
 
-</form>
-<form>
+<div>
+    {% if gameOver == True %}
+        <td>
+            Вы победили
+        </td>
+    {% else %}
+        <td>
+            Вы проиграли
+        </td>
+    {% endif %}
+</div>
 
 </form>
 
